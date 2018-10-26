@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns th="www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/process}"
+      th:object="${message}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    Title:<input type="text" th:field="*{title}" />
+    <span th:if="${#fields.hasErrors('title')}"
+          th:errors="*{title}"></span><br />
+
+    Content ::<textarea rows="4" th:field="*{content}" />
+    <span th:if ="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br />
+
+    Posted Date :<input type="text" th:field="*{postedDate}" />
+    <span th:if="${#fields.hasErrors('postedDate')}"
+          th:errors="*{postedDate}"></span><br />
+
+    Posted By :<input type="text" th:field="*{postedBy}" />
+    <span th:if="${#fields.hasErrors('postedBy')}"
+          th:errors="*{postedBy}"></span><br />
+
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
